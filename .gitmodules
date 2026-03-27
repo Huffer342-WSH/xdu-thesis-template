@@ -1,0 +1,3 @@
+[submodule "template/xduts"]
+	path = template/xduts
+	url = https://github.com/Huffer342-WSH/xduts

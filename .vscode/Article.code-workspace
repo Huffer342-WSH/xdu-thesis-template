@@ -1,0 +1,225 @@
+{
+	"folders": [
+		{
+			"name": "/",
+			"path": "../"
+		},
+		{
+			"name": "plotting",
+			"path": "../scripts/plotting"
+		},
+		{
+			"name": "figures",
+			"path": "../figures"
+		}
+	],
+	"settings": {
+		// 颜色配置
+		"workbench.colorTheme": "Light+",
+		"workbench.colorCustomizations": {
+			"[Default Light+]": {
+				// 侧边栏
+				"sideBar.background": "#eeeeee", // 侧边栏
+				"sideBar.border": "#d1d9e0", // 侧边栏边框
+				"sideBar.foreground": "#363636",
+				// 编辑器
+				"editor.background": "#fffffde5", // 背景
+				"editor.lineHighlightBackground": "#d4d4d40a", // 当前行高亮更加含蓄
+				"editor.selectionBackground": "#d0e1f9", // 选中文本的颜色改为淡蓝色
+				"editorCursor.foreground": "#5271FF", // 光标改为柔和的蓝色
+			}
+		},
+		"editor.tokenColorCustomizations": {
+			"[Default Light+]": {
+				"textMateRules": [
+					// markdown
+					{
+						"name": "**加粗**",
+						"scope": [
+							"markup.bold.markdown",
+							"punctuation.definition.bold.markdown"
+						],
+						"settings": {
+							"foreground": "#283941",
+							"fontStyle": "bold"
+						}
+					},
+					{
+						"name": "数学公式定界符'$'",
+						"scope": [
+							"punctuation.definition.math.begin.markdown",
+							"punctuation.definition.math.end.markdown"
+						],
+						"settings": {
+							"foreground": "#098658",
+							"fontStyle": "bold"
+						}
+					},
+					// LaTeX
+					{
+						"name": "LaTeX 标题",
+						"scope": [
+							"entity.name.section.latex",
+							"keyword.control.section.latex"
+						],
+						"settings": {
+							"foreground": "#6b340f",
+							"fontStyle": "bold",
+						}
+					},
+					{
+						"name": "LaTeX Citation Key",
+						"scope": [
+							"constant.other.reference.citation.latex",
+							"variable.parameter.cite.latex"
+						],
+						"settings": {
+							"foreground": "#1272cc",
+							"fontStyle": "italic underline",
+						}
+					},
+				]
+			}
+		},
+		"[markdown]": {
+			"editor.fontFamily": "'Cascadia Code','Microsoft YaHei'",
+			"editor.fontWeight": "350",
+			"editor.lineHeight": 1.5,
+			"editor.lineNumbers": "off",
+			"editor.wordWrap": "on"
+		},
+		"[latex]": {
+			"editor.formatOnSave": false,
+			"editor.wordWrap": "on",
+			"editor.fontWeight": "300"
+		},
+		"[latex-class]": {
+			"editor.formatOnSave": false,
+		},
+		//=========================================================================
+		//  LaTeX WorkShop
+		//=========================================================================
+		// 当设置为"never"时，禁用了保存LaTeX文档时自动编译的功能。
+		"latex-workshop.latex.autoBuild.run": "onFileChange",
+		// 启用VS Code编辑器中的LaTeX文件右键菜单。
+		"latex-workshop.showContextMenu": true,
+		// 启用LaTeX Workshop的智能感知功能，包括代码自动完成、参数信息等。
+		"latex-workshop.intellisense.package.enabled": true,
+		// 禁用错误信息在编辑器中的显示。
+		"latex-workshop.message.error.show": false,
+		// 禁用警告信息在编辑器中的显示。
+		"latex-workshop.message.warning.show": false,
+		// 定义了LaTeX编译工具的配置，包括工具名称、命令和参数。
+		"latex-workshop.latex.tools": [
+			{
+				"name": "latexmk", // 工具名称：latexmk
+				"command": "latexmk",
+				"args": [ // 命令参数，latexmk特有的参数
+					"-xelatex",
+					"-bibtex",
+					"-synctex=1",
+					"-interaction=nonstopmode",
+					"-file-line-error",
+					"-logfilewarnings",
+					"-outdir=%OUTDIR%",
+					"%DOC%"
+				]
+			},
+			{
+				"name": "xelatex -no-pdf",
+				"command": "xelatex",
+				"args": [
+					"-no-pdf",
+					"-synctex=1",
+					"-interaction=nonstopmode",
+					"-file-line-error",
+					"-output-directory=%OUTDIR%",
+					"%DOC%"
+				]
+			},
+			{
+				"name": "xdvipdfmx",
+				"command": "xdvipdfmx",
+				"args": [
+					"-E",
+					"-z",
+					"0",
+					"-o",
+					"%OUTDIR%/%DOCFILE%.pdf",
+					"%OUTDIR%/%DOCFILE%.xdv"
+				]
+			}
+		],
+		// 定义了LaTeX编译流程的名称和使用的编译工具序列。
+		"latex-workshop.latex.recipes": [
+			{
+				"name": "LaTeXmk",
+				"tools": [
+					"latexmk"
+				]
+			},
+			{
+				"name": "XeLaTeX(无参考文献)",
+				"tools": [
+					"xelatex -no-pdf",
+					"xdvipdfmx"
+				]
+			}
+		],
+		"latex-workshop.latex.clean.command": "latexmk",
+		"latex-workshop.latex.clean.args": [
+			"-c", // 清理辅助文件（但不删除 PDF）
+			"-outdir=%OUTDIR%",
+			"%DOC%"
+		],
+		// 设置默认使用上次使用的编译流程。
+		"latex-workshop.latex.recipe.default": "lastUsed",
+		// 设置PDF查看器中同步TeX的快捷键
+		"latex-workshop.view.pdf.internal.synctex.keybinding": "ctrl-click",
+		// 格式化配置
+		"latex-workshop.formatting.latex": "latexindent",
+		"latex-workshop.formatting.latexindent.args": [
+			"-m",
+			"-l",
+			"%DIR%/latexindent.yaml",
+			"%TMPFILE%"
+		],
+		// 语法检查配置
+		"latex-workshop.linting.chktex.enabled": true,
+		"latex-workshop.linting.chktex.exec.args": [
+			"-l",
+			".chktexrc",
+		],
+		"latex-workshop.intellisense.citation.backend": "biblatex",
+	},
+	"extensions": {
+		"recommendations": [
+			// git
+			"eamodio.gitlens",
+			// python
+			"ms-python.python",
+			"ms-toolsai.jupyter",
+			// document
+			"yzhang.markdown-all-in-one",
+			"cweijan.vscode-office",
+			"james-yu.latex-workshop",
+			"yfzhao.ultra-math-preview"
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "统计正文字数",
+				"command": "texcount",
+				"type": "shell",
+				"args": [
+					"-chinese",
+					"-total",
+					"-merge",
+					"${workspaceFolder}/chapters/chapter[0-9].tex"
+				],
+			}
+		]
+	}
+}

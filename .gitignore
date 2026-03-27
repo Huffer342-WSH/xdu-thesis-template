@@ -1,0 +1,21 @@
+# 构建输出
+build
+
+# 日志
+*.log
+
+# office临时文件
+**/~*.doc*
+**/~*.ppt*
+
+chapters/aaatemp.tex
+**/**temp.tex
+
+# Python
+
+**/__pycache__/
+
+# 临时内容
+submission/**
+chapters/prompt.md
+chapters/aaaa.tex

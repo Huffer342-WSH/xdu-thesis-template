@@ -1,0 +1,29 @@
+defaultIndent: "  "
+
+noAdditionalIndent:
+  caption: 1
+  label: 1
+
+modifyLineBreaks:
+  preserveBlankLines: 1
+  condenseMultipleBlankLinesInto: 1
+  environments:
+    equation:
+      BeginStartsOnOwnLine: 4
+      EndFinishesWithLineBreak: 4
+    figure:
+      BeginStartsOnOwnLine: 4
+      EndFinishesWithLineBreak: 4
+  commands:
+    section:
+      CommandStartsOnOwnLine: 4
+    subsection:
+      CommandStartsOnOwnLine: 4
+    subsubsection:
+      CommandStartsOnOwnLine: 4
+    label:
+      CommandStartsOnOwnLine: -1  # label紧跟在上一行末尾
+
+
+  textWrapOptions:
+    multipleSpacesToSingle: 1

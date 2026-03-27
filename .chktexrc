@@ -1,0 +1,34 @@
+CmdLine
+{
+    -wall   # 开启所有警告
+    -q      # 静默模式 (Quiet)
+
+    -e16    # 检查数学环境终止符
+
+    # 禁用
+    -n1     # 命令后的空格
+    -n3     # 应使用连接号
+    -n8     # 连字符长度错误
+    -n19    # 中文逗号'，'
+    -n21    # This command might not be intended.
+    -n22    # 应使用省略号 (Expected `...' (ellipsis))
+    -n30    # 连续空格
+    -n36    # 括号后应加空格
+}
+
+MathCmd
+{
+    \(
+    \[
+}
+
+TextCmd{
+    \)
+    \]
+}
+
+MathEnvir
+{
+    displaymath math eqnarray array equation
+    align alignat gather flalign multline
+}

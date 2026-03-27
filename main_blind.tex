@@ -1,0 +1,118 @@
+\documentclass{xdupgthesis}
+
+% --- 基础数学与字体宏包 ---
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{bbding}
+
+% --- 图表排版宏包 ---
+\usepackage{tabularray}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{arydshln}
+\usepackage[export]{adjustbox}
+\UseTblrLibrary{booktabs}
+
+% --- 列表与算法 ---
+\usepackage{enumitem}
+\usepackage[ruled,linesnumbered,algochapter]{algorithm2e}
+\SetKwComment{Comment}{/* }{ */}
+
+% --- 定义新的定理环境格式 (amsthm) ---
+\newtheoremstyle{mytheorem}{}{}{}{\parindent}{\bfseries}{.}{.5em}{}
+\theoremstyle{mytheorem}
+\newtheorem{theorem}{定理}[chapter]
+\newtheorem{corollary}{推论}[chapter]
+\newtheorem{lemma}{引理}[chapter]
+\newtheorem{definition}{定义}[chapter]
+\newtheorem{proposition}{命题}[chapter]
+\newtheorem{property}{性质}[chapter]
+\newtheorem{assumption}{假设}[chapter]
+\newtheorem{example}{例}[section]
+
+% --- 定义新的注记环境格式 ---
+\newtheoremstyle{myremark}{}{}{}{\parindent}{\bfseries}{.}{.5em}{}
+\theoremstyle{myremark}
+\newtheorem*{remark}{注}
+
+% --- 定义新的证明环境格式 ---
+\newtheoremstyle{myproof}{}{}{}{\parindent}{\bfseries}{:}{.5em}{}
+\theoremstyle{myproof}
+\newtheorem*{Proof}{证明}
+
+% --- pandoc兼容性微调 ---
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% --- 模板选项 (XDUTS Setup) ---
+\xdusetup{
+  style = {
+    remove-page         = {声明页, 附录, 致谢},
+    cjk-font            = win,
+    title-bold-math     = true,
+    language            = zh,
+    font-type           = font,
+    latin-font          = tac,
+    biblatex-option     = {
+      doi  = false,
+      url  = false,
+      isbn = false
+    },
+    title-row-los       = false,
+    title-row-loa       = false,
+    colspec-los         = {Q[l,h,wd=4cm]X[l,h]},
+    colspec-loa         = {Q[l,h]X[l,h]Q[l,h]},
+    customize-edubg     = false,
+    customize-resresult = false,
+    customize-los       = false,
+    customize-loa       = false,
+  },
+  info = {
+    graduate-type                = {硕士},
+    degree-type                  = {专业},
+    degree                       = {请填写中文学位名称},
+    degree*                      = {Please Fill in English Degree Name},
+    title                        = {请填写论文中文题目},
+    title*                       = {Please Fill in English Thesis Title},
+    department                   = {请填写学院名称},
+    domain                       = {请填写研究方向},
+    submit-date                  = {2026-03},
+    author                       = {张三},
+    author*                      = {Zhang San},
+    supervisor                   = {李四},
+    supervisor*                  = {Li Si},
+    supv-title                   = {教授},
+    supv-title*                  = {Professor},
+    supv-ent                     = {王五},
+    supv-ent*                    = {Wang Wu},
+    supervisor-enterprise-title  = {高级工程师},
+    supervisor-enterprise-title* = {Senior Engineer},
+    student-id                   = {00000000000},
+    clc                          = {TN95},
+    abstract         = {chapters/abstract-zh.tex},
+    abstract*        = {chapters/abstract-en.tex},
+    keywords         = {请填写关键词1，关键词2，关键词3},
+    keywords*        = {keyword1, keyword2, keyword3},
+    los              = {chapters/los.tex},
+    loa              = {chapters/loa.tex},
+    bib-resource     = {references.bib},
+    appendix         = {{chapters/appendix-Jonker-Volgenant.tex}},
+    acknowledgements = {chapters/acknowledgements.tex},
+    bio              = {chapters/bio_blind.tex}
+  }
+}
+
+%--------------正文---------------
+\begin{document}
+
+\iffalse
+  \addbibresource{references.bib}
+\fi
+
+\include{chapters/chapter1}
+\include{chapters/chapter2}
+\include{chapters/chapter3}
+\include{chapters/chapter4}
+\include{chapters/conclusion}
+
+\end{document}
